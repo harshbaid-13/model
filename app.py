@@ -11,6 +11,24 @@ from deep_translator import GoogleTranslator
 ps = PorterStemmer()
 lemmatizer = WordNetLemmatizer()
 
+from nltk.data import find
+
+def setup_nltk():
+    try:
+        # Check if stopwords, wordnet, and punkt data are already downloaded
+        find('corpora/stopwords.zip')
+        find('corpora/wordnet.zip')
+        find('tokenizers/punkt.zip')
+        print("NLTK data already downloaded.")
+    except LookupError:
+        # If any of the data is not downloaded, download them
+        print("Downloading NLTK data...")
+        nltk.download('stopwords')
+        nltk.download('wordnet')
+        nltk.download('punkt')
+
+setup_nltk()  # Call this function to check and download NLTK data if necessary
+
 stop_words=set(STOPWORDS)
 stop_words=stop_words.union(set(stopwords.words('english')))
 stop_words.add('im')
