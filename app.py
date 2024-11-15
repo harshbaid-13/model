@@ -1,3 +1,4 @@
+import os
 import nltk
 from textblob import TextBlob
 from wordcloud import  STOPWORDS
@@ -67,9 +68,9 @@ app = Flask(__name__)
 
 # Change this to vectorizer file iteself
 # Load the trained model from local directory
-with open("bert_model_100.pkl", "rb") as model_file:
+with open("/tmp/bert_model_100.pkl", "rb") as model_file:
     bert_model = pickle.load(model_file)
-with open('sentiment_analyzer.pkl','rb') as f:
+with open('/tmp/sentiment_analyzer.pkl','rb') as f:
     sentiment_analyzer=pickle.load(f)
 bert_mapping={-1: 'Payment, Money and Slow-loading Related Issues',
  0: 'Positive Review',
