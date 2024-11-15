@@ -1,1 +1,3 @@
 venv
+bert_model_100.pkl
+sentiment_analyzer.pkl
