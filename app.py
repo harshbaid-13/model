@@ -68,9 +68,15 @@ app = Flask(__name__)
 
 # Change this to vectorizer file iteself
 # Load the trained model from local directory
-with open("/tmp/bert_model_100.pkl", "rb") as model_file:
+
+# Define the path to the files
+bert_model_path = os.path.join("models", "bert_model_100.pkl")
+sentiment_analyzer_path = os.path.join("models", "sentiment_analyzer.pkl")
+
+
+with open(bert_model_path, "rb") as model_file:
     bert_model = pickle.load(model_file)
-with open('/tmp/sentiment_analyzer.pkl','rb') as f:
+with open(sentiment_analyzer_path,'rb') as f:
     sentiment_analyzer=pickle.load(f)
 bert_mapping={-1: 'Payment, Money and Slow-loading Related Issues',
  0: 'Positive Review',
