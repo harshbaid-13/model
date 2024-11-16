@@ -13,7 +13,6 @@ ps = PorterStemmer()
 lemmatizer = WordNetLemmatizer()
 
 from nltk.data import find
-
 def setup_nltk():
     try:
         # Check if stopwords, wordnet, and punkt data are already downloaded
@@ -120,7 +119,7 @@ bert_mapping={-1: 'Payment, Money and Slow-loading Related Issues',
  38: 'Train and IRCTC services- related reviews addressing general and cleanliness related problems',
  39: 'Different Error popups in the application and mobile permissions related reviews',
  40: 'Journey and Travel related reviews',
-  41: 'Negative Reviews', #related to download
+ 41: 'Negative Reviews', #related to download
  42: 'Reliability related positive reviews',
  43: 'Negative Reviews',#irrititating related
  44: 'Interface Related Reviews',
@@ -130,7 +129,7 @@ bert_mapping={-1: 'Payment, Money and Slow-loading Related Issues',
  48: 'Negative feedback on App development process and other UI related reviews',
  49: 'Various/New Features related reviews',
  50: 'Master List (feature) rleated reviews',
-  51: 'Negative Reviews',
+ 51: 'Negative Reviews',
  52: 'Unauthorized Device/Access and Invalid Requests related reviews',
  53: 'Negative reviews',
  54: 'Generic Reviews', #P/N
@@ -140,7 +139,7 @@ bert_mapping={-1: 'Payment, Money and Slow-loading Related Issues',
  58: 'Negative Reviews',
  59: 'Train chart rleated reviews',
  60: 'ticket confirmation related reviews',
-  61: 'Pin, Captcha and biometric related problems/reviews',
+ 61: 'Pin, Captcha and biometric related problems/reviews',
  62: 'App buffereing related issues',
  63: 'Postive Reviews',
  64: 'Review related to duration/years of the application',
@@ -197,4 +196,5 @@ def predict():
 
 # Run the Flask app
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(host="0.0.0.0", port=int(os.environ.get("PORT", 8080)))
+
